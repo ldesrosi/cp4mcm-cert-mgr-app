@@ -6,13 +6,12 @@ metadata:
   labels:
     app: nodeapp-placement
   annotations:
-    apps.open-cluster-management.io/github-path: deployment
+    apps.open-cluster-management.io/github-path: nodeapp/deployment
     apps.open-cluster-management.io/github-branch: master
 spec:
-  channel: demo/gitops
+  channel: mcm-common/gitops
   placement:
     placementRef:
-      name: managed-cluster-placement
-      namespace: mcm-common
+      name: nodeapp-placement
       kind: PlacementRule
 

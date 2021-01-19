@@ -12,6 +12,6 @@ spec:
   channel: mcm-common/gitops
   placement:
     placementRef:
-      name: managed-cluster-placement
+      name: common-placement
       kind: PlacementRule
 

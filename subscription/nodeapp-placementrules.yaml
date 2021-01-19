@@ -1,10 +1,10 @@
 apiVersion: apps.open-cluster-management.io/v1
 kind: PlacementRule
 metadata:
-  name: managed-cluster-placement
-  namespace: mcm-common
+  name: nodeapp-placement
+  namespace: nodeapp
   labels:
-    app: managed-cluster-placement
+    app: nodeapp-placement
 spec:
   clusterConditions:
     - type: ManagedClusterConditionAvailable
@@ -12,4 +12,4 @@ spec:
   clusterSelector:
     matchLabels:
       vendor: OpenShift
-  clusterReplicas: 1
+  clusterReplicas: 2
