@@ -2,6 +2,8 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: sample-cm-deployment-tls
+  annotations:
+      apps.open-cluster-management.io/deployables: "true"
 spec:
   # name of the tls secret to store
   # the generated certificate/key pair
