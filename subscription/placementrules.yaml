@@ -1,0 +1,15 @@
+apiVersion: apps.open-cluster-management.io/v1
+kind: PlacementRule
+metadata:
+  name: managed-cluster-placement
+  namespace: mcm-common
+  labels:
+    app: managed-cluster-placement
+spec:
+  clusterConditions:
+    - type: ManagedClusterConditionAvailable
+      status: "True"
+  clusterSelector:
+    matchLabels:
+      vendor: OpenShift
+  clusterReplicas: 1

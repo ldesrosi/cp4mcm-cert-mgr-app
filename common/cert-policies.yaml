@@ -1,0 +1,29 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: Policy
+metadata:
+  name: policy-certificatepolicy
+  namespace: mcm-common
+  annotations:
+    policy.open-cluster-management.io/categories: PR.DS Data Security
+    policy.open-cluster-management.io/controls: PR.DS-2 Data-in-transit
+    policy.open-cluster-management.io/standards: NIST-CSF
+spec:
+  disabled: false
+  policy-templates:
+    - objectDefinition:
+        apiVersion: policy.open-cluster-management.io/v1
+        kind: CertificatePolicy
+        metadata:
+          name: policy-certificatepolicy-common
+        spec:
+          minimumDuration: 300h
+          namespaceSelector:
+            exclude:
+              - kube-*
+              - open-cluster-management*
+              - openshift-*
+            include:
+              - '*'
+          remediationAction: inform
+          severity: low
+  remediationAction: inform

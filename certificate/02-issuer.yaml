@@ -1,7 +1,0 @@
-apiVersion: certmanager.k8s.io/v1alpha1
-kind: Issuer
-metadata:
- name: app-tls
-spec:
- ca:
-   secretName: app-tls-ca-key-pair

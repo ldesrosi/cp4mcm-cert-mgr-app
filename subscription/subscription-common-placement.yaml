@@ -1,0 +1,17 @@
+apiVersion: apps.open-cluster-management.io/v1
+kind: Subscription
+metadata:
+  name: placement-common-subscription
+  namespace: mcm-common
+  labels:
+    app: common-placement
+  annotations:
+    apps.open-cluster-management.io/github-path: common
+    apps.open-cluster-management.io/github-branch: master
+spec:
+  channel: mcm-common/gitops
+  placement:
+    placementRef:
+      name: managed-cluster-placement
+      kind: PlacementRule
+

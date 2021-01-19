@@ -1,0 +1,18 @@
+apiVersion: apps.open-cluster-management.io/v1
+kind: Subscription
+metadata:
+  name: placement-nodeapp-subscription
+  namespace: nodeapp
+  labels:
+    app: nodeapp-placement
+  annotations:
+    apps.open-cluster-management.io/github-path: deployment
+    apps.open-cluster-management.io/github-branch: master
+spec:
+  channel: demo/gitops
+  placement:
+    placementRef:
+      name: managed-cluster-placement
+      namespace: mcm-common
+      kind: PlacementRule
+
