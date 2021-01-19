@@ -10,6 +10,6 @@ spec:
     - type: ManagedClusterConditionAvailable
       status: "True"
   clusterSelector:
-    matchLabels:
-      vendor: OpenShift
+    matchExpressions:
+      - {key: local-cluster, operator: In, values: ["false"]}
   clusterReplicas: 2
