@@ -11,5 +11,5 @@ spec:
       status: "True"
   clusterSelector:
     matchExpressions:
-      - {key: local-cluster, operator: In, values: ["false"]}
+      - {key: mcm-managed, operator: In, values: ["true"]}
   clusterReplicas: 2
