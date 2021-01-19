@@ -1,8 +1,17 @@
-apiVersion: cert-manager.io/v1
-kind: ClusterIssuer
+apiVersion: app.ibm.com/v1alpha1
+kind: Deployable
 metadata:
-  name: app-tls
   annotations:
-      apps.open-cluster-management.io/deployables: "true"
+    app.ibm.com/is-local-deployable: "false"
+  name: issuer-deployable
+  namespace: nodeapp
 spec:
-  selfSigned: {}
+  template:
+    apiVersion: cert-manager.io/v1
+    kind: Issuer
+    metadata:
+      name: app-tls
+      annotations:
+          apps.open-cluster-management.io/deployables: "true"
+    spec:
+      selfSigned: {}

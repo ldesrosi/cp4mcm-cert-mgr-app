@@ -1,25 +1,34 @@
-apiVersion: cert-manager.io/v1
-kind: Certificate
+apiVersion: app.ibm.com/v1alpha1
+kind: Deployable
 metadata:
-  name: sample-cm-deployment-tls
   annotations:
-      apps.open-cluster-management.io/deployables: "true"
+    app.ibm.com/is-local-deployable: "false"
+  name: certificate-deployable
+  namespace: nodeapp
 spec:
-  # name of the tls secret to store
-  # the generated certificate/key pair
-  secretName: sample-cm-deployment-tls
-  issuerRef:
-    # Issuer Name
-    name: app-tls
-    # The default value is Issuer (i.e.
-    # a locally namespaced Issuer)
-    kind: ClusterIssuer
-  commonName: "sample-cm.app.com"
-  dnsNames:
-   # one or more fully-qualified domain names
-   # can be defined here
-  - sample-cm.app.com
-  ipAddresses:
-   # one or more IP addresses can be defined here
-  - 0.0.0.0
-  - 127.0.0.1
+  template:
+  apiVersion: cert-manager.io/v1
+  kind: Certificate
+  metadata:
+    name: sample-cm-deployment-tls
+    annotations:
+        apps.open-cluster-management.io/deployables: "true"
+  spec:
+    # name of the tls secret to store
+    # the generated certificate/key pair
+    secretName: sample-cm-deployment-tls
+    issuerRef:
+      # Issuer Name
+      name: app-tls
+      # The default value is Issuer (i.e.
+      # a locally namespaced Issuer)
+      kind: ClusterIssuer
+    commonName: "sample-cm.app.com"
+    dnsNames:
+    # one or more fully-qualified domain names
+    # can be defined here
+    - sample-cm.app.com
+    ipAddresses:
+    # one or more IP addresses can be defined here
+    - 0.0.0.0
+    - 127.0.0.1
