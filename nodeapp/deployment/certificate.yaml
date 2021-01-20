@@ -1,12 +1,12 @@
-apiVersion: apps.open-cluster-management.io/v1
-kind: Deployable
-metadata:
-  annotations:
-    app.ibm.com/is-local-deployable: "false"
-  name: certificate-deployable
-  namespace: nodeapp
-spec:
-  template:
+#apiVersion: apps.open-cluster-management.io/v1
+#kind: Deployable
+#metadata:
+#  annotations:
+#    app.ibm.com/is-local-deployable: "false"
+#  name: certificate-deployable
+#  namespace: nodeapp
+#spec:
+#  template:
   apiVersion: cert-manager.io/v1
   kind: Certificate
   metadata:
