@@ -34,10 +34,23 @@ metadata:
   name: binding-policy-certificatepolicy
   namespace: mcm-common
 placementRef:
-  name: common-placement
+  name: placement-policy-certificatepolicy
   kind: PlacementRule
   apiGroup: apps.open-cluster-management.io
 subjects:
 - name: policy-certificatepolicy
   kind: Policy
   apiGroup: policy.open-cluster-management.io
+---
+apiVersion: apps.open-cluster-management.io/v1
+kind: PlacementRule
+metadata:
+  name: placement-policy-certificatepolicy
+  namespace: mcm-common
+spec:
+  clusterConditions:
+  - status: "True"
+    type: ManagedClusterConditionAvailable
+  clusterSelector:
+    matchExpressions:
+      - {key: vendor, operator: In, values: ["OpenShift"]}
