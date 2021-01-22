@@ -8,5 +8,5 @@ spec:
     - type: ManagedClusterConditionAvailable
       status: "True"
   clusterSelector:
-    matchLabels:
-      vendor: OpenShift
+    matchExpressions:
+      - {key: mcm-managed, operator: In, values: ["true"]}
