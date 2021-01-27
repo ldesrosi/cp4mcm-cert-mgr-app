@@ -3,6 +3,4 @@ kind: CertManager
 metadata:
   name: cert-manager
   namespace: mcm-common
-  labels:
-    app: common-components
 spec: {}
