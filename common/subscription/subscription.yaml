@@ -4,7 +4,7 @@ metadata:
   name: placement-common-subscription
   namespace: mcm-common
   labels:
-    app: common-components
+    app: cert-manager
   annotations:
     apps.open-cluster-management.io/github-path: common/deployment
     apps.open-cluster-management.io/github-branch: master

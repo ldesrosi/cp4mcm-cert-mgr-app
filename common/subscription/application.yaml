@@ -2,9 +2,9 @@
     apiVersion: app.k8s.io/v1beta1
     kind: Application
     metadata:
-      name: common-components
+      name: cert-manager
       namespace: mcm-common
     spec:
       selector:
         matchLabels:
-          app: common-components
+          app: cert-manager
