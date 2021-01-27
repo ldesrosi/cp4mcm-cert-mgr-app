@@ -4,7 +4,7 @@ metadata:
   name: placement-nodeapp-subscription
   namespace: nodeapp
   labels:
-    app: nodeapp-placement
+    app: nodeapp
   annotations:
     apps.open-cluster-management.io/github-path: nodeapp/deployment
     apps.open-cluster-management.io/github-branch: master
